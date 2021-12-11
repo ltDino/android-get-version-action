@@ -31,9 +31,9 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Bump version
+      - name: Get Android version
         id: test
-        uses: ltDino/android-get-version-action@v0.1
+        uses: ltDino/android-get-version-action@v1.0
         with:
           gradlePath: app/build.gradle # or app/build.gradle.kts 
       - name: Get the output
