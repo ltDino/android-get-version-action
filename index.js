@@ -15,9 +15,12 @@ try {
 
     fs.readFile( gradlePath, 'utf-8', function( err, data ) {
 
-        versionCode = data.search( versionCodeRegexPattern )
-        versionName = data.search( versionNameRegexPattern )
-
+        versionCode = data.match( versionCodeRegexPattern ).pop()
+        versionName = data.match( versionNameRegexPattern ).pop()
+        while ( versionName.includes("\"") ) {
+            console.log("startsWith the \", need to delete it ")
+            versionName = versionName.replace( "\"", "" )
+        }
         core.setOutput( "versionCode", versionCode )
         core.setOutput( "versionName", versionName )
         console.log(`Get versionCode : ${versionCode}`);
