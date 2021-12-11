@@ -1,0 +1,15 @@
+name: 'Get Android version'
+description: 'Use to get the version code and version name'
+inputs:
+  gradlePath:
+    description: "Gradle path to get version"
+    required: true
+    default: "app/build.gradle"
+outputs:
+  versionName:
+    description: 'The version name'
+  versionCode:
+    description: 'The version code'
+runs:
+  using: 'node12'
+  main: 'index.js'
